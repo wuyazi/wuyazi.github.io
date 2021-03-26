@@ -1,11 +1,11 @@
 
 # 对象-关系 阻抗不匹配（Object–relational impedance mismatch）
 
-  翻译自[维基百科](https://en.wikipedia.org/wiki/Object–relational_impedance_mismatch)
+>翻译自 [维基百科](https://en.wikipedia.org/wiki/Object–relational_impedance_mismatch)
 
 阻抗不匹配是一个理论和技术的双重难题，通常出现在关系型数据库管理系统（RDBMS）为一个或多个应用程序提供服务的时候，而这个服务的编写语言是面向对象的语言或者风格，主要是因为对象或类的定义必须映射到一个由关系型模型定义的数据表中。
 
->这个术语（object–relational impedance mismatch）起源于电器工程的阻抗不匹配（impedance matching）。
+这个术语（object–relational impedance mismatch）起源于电器工程的阻抗不匹配（impedance matching）。
 
 ## 不匹配
 
