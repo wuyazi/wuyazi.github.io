@@ -1,4 +1,4 @@
-  - [home](/)
+  - [主页](/)
   - [理论](/theory/)
     - [阻抗不匹配](/theory/impedance_mismatch)
   - [算法](/algorithm/)
