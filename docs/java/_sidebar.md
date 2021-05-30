@@ -3,3 +3,4 @@
   - [算法](/algorithm/)
   - [go](/go/)
   - [java](/java/)
+    - [训练营](/java/xunlianying/)
