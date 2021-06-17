@@ -6,4 +6,5 @@
     - [训练营](/java/xunlianying/)
       - [0101 MyBatis](/java/xunlianying/0101mybatis)
       - [0102 Spring](/java/xunlianying/0102spring)
-      - [0103 Spring MVC](/java/xunlianying/0103springmvc)
+      - [0103 SpringMVC](/java/xunlianying/0103springmvc)
+      - [0104 SpringBoot](/java/xunlianying/0104springboot)
