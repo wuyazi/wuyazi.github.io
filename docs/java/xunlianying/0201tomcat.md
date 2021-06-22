@@ -140,8 +140,57 @@ Tomcat优化从两个⽅⾯进⾏
    - 当Tomcat并发性能有较⾼要求或者出现瓶颈时，我们可以尝试使⽤APR模式，APR（Apache PortableRuntime）是从操作系统级别解决异步IO问题，使⽤时需要在操作系统上安装APR和Native（因为APR原理是使⽤使⽤JNI技术调⽤操作系统底层的IO接⼝）
  - 动静分离
 
+## Nginx
 
+Nginx 是⼀个⾼性能的HTTP和反向代理web服务器，核⼼特点是占有内存少，并发能⼒强
 
+#### Nginx ⼜能做什么事情（应⽤场景）
 
+ - Http服务器（Web服务器）
+   - 性能⾮常⾼，⾮常注重效率，能够经受⾼负载的考验。⽀持50000个并发连接数，不仅如此，CPU和内存的占⽤也⾮常的低，10000个没有活动的连接才占⽤2.5M的内存。
+ - 反向代理服务器
+   - 正向代理
+   - 反向代理
+ - 负载均衡服务器
+ - 动静分离
 
+Nginx主要命令
+ - ./nginx 启动nginx
+ - ./nginx -s stop 终⽌nginx（当然也可以找到nginx进程号，然后使⽤kill -9 杀掉nginx进程）
+ - ./nginx -s reload (重新加载nginx.conf配置⽂件)
 
+目标服务器在处理请求的时候，nginx 在等待吗？？？
+
+location 语法如下：
+`location [=|~|~*|^~] /uri/ { … }`
+
+Nginx负载均衡策略
+
+ - 轮询
+ - weight
+ - ip_hash
+
+ - master进程(主要是管理worker进程，⽐如：
+   - 接收外界信号向各worker进程发送信号(./nginx -s reload)
+   - 监控worker进程的运⾏状态，当worker进程异常退出后Master进程会⾃动重新启动新的worker进程等
+ - worker进程
+   - worker进程具体处理⽹络请求。多个worker进程之间是对等的，他们同等竞争来⾃客户端的请求，各进程互相之间是独⽴的。⼀个请求，只可能在⼀个worker进程中处理，⼀个worker进程，不可能处理其它进程的请求。worker进程的个数是可以设置的，⼀般设置与机器cpu核数⼀致。
+
+nginx 的并发数要除以4???
+
+以 ./nginx -s reload 来说明nginx信号处理这部分
+1）master进程对配置⽂件进⾏语法检查
+2）尝试配置（⽐如修改了监听端⼝，那就尝试分配新的监听端⼝）
+3）尝试成功则使⽤新的配置，新建worker进程
+4）新建成功，给旧的worker进程发送关闭消息
+5）旧的worker进程收到信号会继续服务，直到把当前进程接收到的请求处理完毕后关闭
+所以reload之后worker进程pid是发⽣了变化的
+
+ - worker进程处理请求部分的说明
+例如，我们监听9003端⼝，⼀个请求到来时，如果有多个worker进程，那么每个worker进程都有可能处理这个链接。
+   - master进程创建之后，会建⽴好需要监听的的socket，然后从master进程再fork出多个worker进程。所以，所有worker进程的监听描述符listenfd在新连接到来时都变得可读。
+   - nginx使⽤互斥锁来保证只有⼀个workder进程能够处理请求，拿到互斥锁的那个进程注册listenfd读事件，在读事件⾥调⽤accept接受该连接，然后解析、处理、返回客户端
+ - nginx多进程模型好处
+   - 每个worker进程都是独⽴的，不需要加锁，节省开销
+   - 每个worker进程都是独⽴的，互不影响，⼀个异常结束，其他的照样能提供服务
+   - 多进程模型为reload热部署机制提供了⽀撑
