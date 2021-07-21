@@ -31,7 +31,7 @@ java 的 hashcode???
 
 ### ⼀致性Hash算法（consistent_hash）
 
-![哈希环](020201.png)
+![哈希环](image/020201.png)
 
 避免了⼤量请求迁移
 
@@ -72,7 +72,7 @@ fudge 127.127.1.0 stratum 10 # 时间和底层时钟保持同步
  - SnowFlake 雪花算法（可以⽤，推荐）
  - 借助Redis的Incr命令获取全局唯⼀ID（推荐）
 
-![SnowFlake](020202.png)
+![SnowFlake](image/020202.png)
 
 > ⼀切互联⽹公司也基于上述的⽅案封装了⼀些分布式ID⽣成器，⽐如滴滴的tinyid（基于数据库实现）、百度的uidgenerator（基于SnowFlake）和美团的leaf（基于数据库和SnowFlake）等
 
@@ -141,7 +141,7 @@ Elastic-Job 主要功能介绍
 
 任务分⽚
 
-![任务分⽚](020203.png)
+![任务分⽚](image/020203.png)
 
 弹性扩容
 

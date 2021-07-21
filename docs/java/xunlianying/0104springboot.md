@@ -48,6 +48,7 @@ mybatis....
 
 自定义日志输出
 
+```
 # 日志配置
 # 指定具体包的日志级别
 logging.level.com.lagou=debug
@@ -60,10 +61,11 @@ logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50}
 logging.file.path=spring.log
 #logging.file.name=log.log
 
+```
+
 替换日志框架（实现层）
 
-
-## 源码剖析
+### 源码剖析
 
 依赖管理
 自动配置
@@ -94,7 +96,7 @@ run 方法六大主要步骤
 六、刷新应用上下文后的扩展接口 - 重写这个方法
 
 
-### SpringBoot starter机制
+#### SpringBoot starter机制
 SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂的配置，将其统一集成进
 starter，应用者只需要在maven中引入starter依赖，SpringBoot就能自动扫描到要加载的信息并
 启动相应的默认配置。starter让我们摆脱了各种依赖库的处理，需要配置各种信息的困扰。
@@ -112,7 +114,7 @@ mapperScan
 
 动态数据源
 
-## 缓存
+### 缓存
 
 JSR 107
 Java Caching（JSR-107）定义了5个核心接口，分别是CachingProvider、CacheManager、
@@ -149,12 +151,10 @@ keyGenerator
 定义
 cacheManager 指定缓存管理器(如ConcurrentHashMap、Redis等)
 cacheResolver 和cacheManager功能一样，和cacheManager二选一
-condition 指定缓存的条件(满足什么条件时才缓存)，可用SpEL表达式(如
-#id>0，表示当入参id大于0时才缓存)
+condition 指定缓存的条件(满足什么条件时才缓存)，可用SpEL表达式(如id>0，表示当入参id大于0时才缓存)
 unless
 否定缓存，即满足unless指定的条件时，方法的结果不进行缓存，
-使用unless时可以在调用的方法获取到结果之后再进行判断(如
-#result==null，表示如果结果为null时不缓存)
+使用unless时可以在调用的方法获取到结果之后再进行判断(如result==null，表示如果结果为null时不缓存)
 sync 是否使用异步模式进行缓存
 
 @CachePut
@@ -166,9 +166,9 @@ sync 是否使用异步模式进行缓存
 AutoConfiguration vs Option
 
 
-## 部署
+### 部署
 
-### 部署打包
+#### 部署打包
 推荐打成 Jar 包部署，（内置 Tomcat，环境统一）
 
 打jar包时不会把src/main/webapp 下的内容打到jar包里 (你认为的打到jar包里面，路径是不行的会报404)
@@ -178,7 +178,7 @@ AutoConfiguration vs Option
 而有大量css、js、html，且需要经常改动的项目，打成 war 包去运行比较方便，
 因为改动静态资源可以直接覆盖，很快看到改动后的效果，这是 jar 包不能比的
 
-### 多环境部署
+#### 多环境部署
 
 @Profile("prod")
 多资源配置文件
