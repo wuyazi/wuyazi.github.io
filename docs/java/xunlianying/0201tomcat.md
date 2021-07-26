@@ -159,7 +159,7 @@ Nginx主要命令
  - ./nginx -s stop 终⽌nginx（当然也可以找到nginx进程号，然后使⽤kill -9 杀掉nginx进程）
  - ./nginx -s reload (重新加载nginx.conf配置⽂件)
 
-目标服务器在处理请求的时候，nginx 在等待吗？？？
+目标服务器在处理请求的时候，nginx 在等待吗???
 
 location 语法如下：
 `location [=|~|~*|^~] /uri/ { … }`
@@ -195,9 +195,9 @@ nginx 的并发数要除以4???
    - 每个worker进程都是独⽴的，互不影响，⼀个异常结束，其他的照样能提供服务
    - 多进程模型为reload热部署机制提供了⽀撑
 
-ngx_accept_mutex ？？？
+ngx_accept_mutex???
 
-10 万并发 ？？？
+10 万并发???
 
 七层负载均衡
 

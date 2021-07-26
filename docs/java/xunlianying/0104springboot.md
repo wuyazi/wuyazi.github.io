@@ -132,7 +132,7 @@ Expiry（缓存时效）：每一个存储在Cache中的条目都有一个定义
 
 cacheManager
 
-如何在事务里更新缓存？？？
+如何在事务里更新缓存???
 
 @Cacheable
 key 可以用 spEL 计算 key 的值
