@@ -28,11 +28,23 @@ SCN -> SCA
 
 > 服务注册中⼼本质上是为了解耦服务提供者和服务消费者。
 
+#### 主流服务中⼼对⽐
 
+ - zookeeper 的存储和监听通知(偶数节点时如何保证选举成功???)
+ - Eureka
+ - Consul
+ - Nacos
 
+| 组件名 | 语⾔ | CAP | 对外暴露接⼝ |
+| --- | --- | --- | --- |
+| Eureka | Java | AP（⾃我保护机制，保证可⽤）| HTTP |
+| Consul | Go | CP | HTTP/DNS |
+| Zookeeper | Java | CP | 客户端 |
+| Nacos | Java | ⽀持AP/CP切换 | HTTP |
 
+#### Eureka
 
-
+![Eureka 基础架构](image/030402.png)
 
 
 
