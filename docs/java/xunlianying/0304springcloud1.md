@@ -46,6 +46,9 @@ SCN -> SCA
 
 ![Eureka 基础架构](image/030402.png)
 
+Eureka Server HA⾼可⽤集群
+
+什么时候用主机名什么时候用ip???
 
 
 
