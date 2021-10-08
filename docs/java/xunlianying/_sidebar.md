@@ -15,3 +15,5 @@
       - [0303 Dubbo](/java/xunlianying/0303dubbo)
       - [0304 Spring Cloud 1](/java/xunlianying/0304springcloud1)
       - [0305 Spring Cloud 2](/java/xunlianying/0305springcloud2)
+      - [0401 MySQL 1](/java/xunlianying/0401mysql1)
+      - [0402 MySQL 2](/java/xunlianying/0402mysql2)

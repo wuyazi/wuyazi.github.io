@@ -1,6 +1,7 @@
   - [主页](/)
   - [理论](/theory/)
     - [阻抗不匹配](/theory/impedance_mismatch)
+    - [DDD](/theory/ddd)
   - [算法](/algorithm/)
   - [go](/go/)
   - [java](/java/)
